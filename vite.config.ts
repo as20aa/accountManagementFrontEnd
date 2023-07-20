@@ -9,5 +9,15 @@ export default defineConfig({
     alias: {
       '@': resolve(__dirname,'./src')
     }
+  },
+  server: {
+    //自定义代理规则
+    proxy: {
+      '*':{
+        target:'http://localhost:8080/',
+        changeOrigin: true,
+        secure: false,
+      }
+    }
   }
 })

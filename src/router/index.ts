@@ -1,4 +1,3 @@
-import { nextTick } from 'process'
 import {createRouter, createWebHashHistory, RouterOptions, Router, RouteRecordRaw, routerKey} from 'vue-router'
 
 /** you must specify the type of routes */
@@ -36,11 +35,8 @@ const routes: RouteRecordRaw[] = [
 const router: Router = createRouter({history: createWebHashHistory(), routes: routes})
 
 /**router gate */
-router.beforeEach((to, from, next) => {
-    //const canAccess = await canUserAccess()
-    // if (!canAccess) next({name: 'login'})
-    // else next()
-    next()
-})
+// router.beforeEach((to, from, next) => {
+//     next()
+// })
 
 export default router
