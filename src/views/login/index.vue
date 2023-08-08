@@ -28,8 +28,10 @@ const submitForm = (formEl: FormInstance | undefined) => {
         phone: form.name,
         pwd: form.password,
     }
-    let resp = login(accountVO)
-    console.log(resp)
+    login(accountVO).then((resp)=>{//you must have the then operation, this request will not pendings
+        console.log(resp)
+        // if login success, just jump to the dashboard view
+    })
 }
 
 const resetForm = (formEl: FormInstance | undefined) => {
