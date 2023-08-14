@@ -9,5 +9,15 @@ export default defineConfig({
     alias: {
       '@': resolve(__dirname,'./src')
     }
+  },
+  server: {
+    proxy: {
+       '/api': {
+        target: process.env.VITE_SERVER,//配置跨域地址，使用process
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/api/, '')
+       }
+    }
   }
 })
+
