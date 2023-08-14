@@ -19,7 +19,11 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
-    "types": ["vite/client"],
+    "types": ["element-plus/global"],//这里提示报错是因为typescript升级到5.x版本的原因，详见：https://www.cnblogs.com/9527l/p/17364231.html
+
+    "paths": {//这里配置paths可以防止在vscode中使用@作为路径别名时的警告
+      "@/*": ["./src/*"],
+    },
   },
   "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"],
   "references": [{ "path": "./tsconfig.node.json" }]

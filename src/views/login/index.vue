@@ -15,6 +15,8 @@
 <script setup lang="ts">
 import {reactive} from 'vue'
 import type {FormInstance} from 'element-plus'
+import type { AccountVO } from '@/api/authenrication/index.ts' // you should use {} to import when you don't provide the export default
+import { login } from '@/api/authenrication/index.ts'
 
 const form = reactive({
     name: '',
@@ -22,7 +24,14 @@ const form = reactive({
 })
 
 const submitForm = (formEl: FormInstance | undefined) => {
-    
+    const accountVO: AccountVO = {
+        phone: form.name,
+        pwd: form.password,
+    }
+    login(accountVO).then((resp)=>{//you must have the then operation, this request will not pendings
+        console.log(resp)
+        // if login success, just jump to the dashboard view
+    })
 }
 
 const resetForm = (formEl: FormInstance | undefined) => {
