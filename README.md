@@ -19,4 +19,4 @@ If the standalone TypeScript plugin doesn't feel fast enough to you, Volar has a
 
 # Some problems and solution
 * env.development, import.meta.env.XXX cannot load value: just delete the .env.development file and recreate a new one.
-* cors: use the vite.config.ts and configure the proxy, notice: target should use the '10.16.10.14' but not localhost
+* cors: use the vite.config.ts and configure the proxy, notice: target should use the real ip address but not localhost
