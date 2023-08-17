@@ -29,7 +29,11 @@ const submitForm = (formEl: FormInstance | undefined) => {
         pwd: form.password,
     }
     login(accountVO).then((resp)=>{//you must have the then operation, this request will not pendings
-        console.log(resp)
+        // 识别是否为200的响应码
+        if(resp.status === 200) {
+            console.log('login successed!')
+            // jump to the dashboard
+        }
         // if login success, just jump to the dashboard view
     })
 }
