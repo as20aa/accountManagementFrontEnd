@@ -1,12 +1,7 @@
 import axios from 'axios'
 import type { AxiosInstance, AxiosRequestConfig, AxiosResponse } from 'axios'
-import { stringify } from 'querystring'
+import type { Response } from '@/utils/response'
 
-type Result<T> = {
-    code: number
-    message: string
-    data: T
-}
 
 export class Request {
     instance: AxiosInstance
@@ -48,30 +43,30 @@ export class Request {
     public get<T = any>(
         url: string,
         config?: AxiosRequestConfig
-    ): Promise<AxiosResponse<Result<T>>> {
+    ): Promise<AxiosResponse<Response<T>>> {
         return this.instance.get(url, config)
     }
 
     public post<T = any>(
-        url: stringify,
+        url: string,
         data?: any,
         config?: AxiosRequestConfig,
-    ): Promise<AxiosResponse<Result<T>>> {
+    ): Promise<AxiosResponse<Response<T>>> {
         return this.instance.post(url, data, config)
     }
 
     public put<T = any>(
-        url: stringify,
+        url: string,
         data?: any,
         config?: AxiosRequestConfig,
-    ): Promise<AxiosResponse<Result<T>>>{
+    ): Promise<AxiosResponse<Response<T>>>{
         return this.instance. put(url, data, config)
     }
 
     public delete<T = any>(
         url:string,
         config?: AxiosRequestConfig
-    ): Promise<AxiosResponse<Result<T>>> {
+    ): Promise<AxiosResponse<Response<T>>> {
         return this.instance.delete(url, config)
     }
         
